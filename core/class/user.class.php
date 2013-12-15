@@ -13,6 +13,9 @@ class User{
     }
     
     //--METHODE--//
+    public function connexion(){
+        
+    }
     public function encryptPassword(){
         
     }

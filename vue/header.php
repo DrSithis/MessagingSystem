@@ -31,7 +31,11 @@
                                                         <table class="w325" border="0" cellpadding="0" cellspacing="0" width="350">
                                                             <tbody><tr><td class="w325" height="8" width="350"></td></tr>
                                                             </tbody></table>
-                                                        <div class="header-content"><webversion>Version web</webversion><span class="hide">&nbsp;&nbsp;|&nbsp; <preferences lang="fr-FR">Mettre &agrave; jour les pr&eacute;f&eacute;rences</preferences>&nbsp;&nbsp;|&nbsp; <unsubscribe>Se d&eacute;sinscrire</unsubscribe></span></div>
+                                                        <div class="header-content">
+                                                            <span class="hide">
+                                                                
+                                                            </span>
+                                                        </div>
                                                         <table class="w325" border="0" cellpadding="0" cellspacing="0" width="350">
                                                             <tbody><tr><td class="w325" height="8" width="350"></td></tr>
                                                             </tbody></table>
@@ -58,7 +62,7 @@
 
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td id="header" class="w640" align="center" bgcolor="#694f80" width="640">
 
@@ -69,7 +73,7 @@
                                                     <td class="w580" width="580">
                                                         <div id="headline" align="center">
                                                             <p>
-                                                                <strong><singleline label="Title">Messagerie</singleline></strong>
+                                                                <strong><singleline label="Title">Système Messagerie</singleline></strong>
                                                             </p>
                                                         </div>
                                                     </td>
