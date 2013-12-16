@@ -15,8 +15,8 @@ echo '
         </p>
         <div class="article-content" align="left">
             <multiline label="Description" style="margin-left : 40%;">
-                <a href="#">Sign Up</a> | 
-                <a href="connexion.php">Login</a>
+                <a href="signup.php">Sign Up</a> | 
+                <a href="login.php">Login</a>
             </multiline>
         </div>
     </td>

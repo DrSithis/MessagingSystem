@@ -15,8 +15,8 @@ define('VIEW', ROOT_PATH . 'view/');
 
 require_once(DB . '/connect_pdo.php');
 
-require_once(MANAGE . 'manage.php');
-require_once(CLASSE . 'class.php');
+require_once(MANAGE . 'user_manager.class.php');
+require_once(CLASSE . 'user.class.php');
 require_once(FUNC . 'func.php');
 
 $usermanager = new UserManager($db);
