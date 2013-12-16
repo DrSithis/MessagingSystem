@@ -33,7 +33,8 @@
                                                             </tbody></table>
                                                         <div class="header-content">
                                                             <span class="hide">
-                                                                
+                                                                <a href="#">Sign Up</a> | 
+                                                                <a href="#">Login</a>
                                                             </span>
                                                         </div>
                                                         <table class="w325" border="0" cellpadding="0" cellspacing="0" width="350">
@@ -73,7 +74,7 @@
                                                     <td class="w580" width="580">
                                                         <div id="headline" align="center">
                                                             <p>
-                                                                <strong><singleline label="Title">Système Messagerie</singleline></strong>
+                                                                <strong><singleline label="Title">Messaging system</singleline></strong>
                                                             </p>
                                                         </div>
                                                     </td>

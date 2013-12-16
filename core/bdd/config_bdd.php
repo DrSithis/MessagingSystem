@@ -6,7 +6,7 @@
                 'hostname' => 'localhost',
                 'username' => 'rchat',
                 'password' => 'FmxHL6M9wWEyv9Nz',
-                'database' => 'cv'
+                'database' => 'chat'
                 ),
             'table_prefix' => '',
             )

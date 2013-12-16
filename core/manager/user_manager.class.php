@@ -3,15 +3,21 @@ class UserManager {
 
     private $selectAll;
     private $selectUser;
-            
+    private $selectIdWithSpeudoPass;        
+    
     private $insertUser;
+    
+    private $updateSid;
 
     //--INIT--//
     public function __construct($db) {
         $this->selectAll = $db->prepare("SELECT * FROM users");
         $this->selectUser = $db->prepare("SELECT * FROM users WHERE users.id = :id");
-        $this->insertUser = $db->prepare("INSERT INTO `users` (`id`, `speudo`, `password`) VALUES (NULL, :speudo, :password);");
+        $this->selectIdWithSpeudoPass = $db->prepare("SELECT users.id FROM users WHERE users.speudo=:speudo AND users.password=:password");
+        
+        $this->insertUser = $db->prepare("INSERT INTO `users` (`id`, `speudo`, `password`, `sid`) VALUES (NULL, :speudo, :password, :sid);");
       
+        $this->updateSid = $db->prepare("UPDATE utilisateurs SET sid=:sid WHERE id=:id");
     }
     
     //--METHOD--//
@@ -28,11 +34,21 @@ class UserManager {
         return $this->selectUser->fetchAll();
     }
    
+    public function selectIdWithSpeudoPass($speudo, $password){
+        $this->selectIdWithSpeudoPass->execute(array(':speudo'=>$speudo, ':password'=>$password));
+        return $this->selectIdWithSpeudoPass->fetchAll();
+    }
+    
     //--+INSERT+--//
-   
-    public function insertUser($speudo, $password){
-        $this->insertUser->execute(array(':speudo'=>$speudo, ':password'=>$password));
+    public function insertUser($speudo, $password, $sid){
+        $this->insertUser->execute(array(':speudo'=>$speudo, ':password'=>$password, ':sid'=>$sid));
         return $this->insertUser->rowCount();
+    }
+    
+    //--+UPDATE+--//
+    public function updateSid($sid, $id){
+        $this->updateSid->execute(array(':sid'=>$sid, ':id'=>$id));
+        return $this->updateSid->rowCount();
     }
     
     //--+DELETE+--//
