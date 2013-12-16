@@ -1,8 +1,12 @@
 <?php
+//phpinfo();
+session_start();
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+define('ROOT_PATH', dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR);
 
+define('CORE', ROOT_PATH . 'core/');
+define('VUE', ROOT_PATH . 'assets/');
+define('VIEW', ROOT_PATH . 'view/');
+define('INC', CORE . 'include/');
+define('DB', CORE . 'db/');
+define('FUNC', CORE . 'function/');

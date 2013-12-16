@@ -1,5 +1,5 @@
 <?php
-require_once './vue/header.php';
+require_once './view/header.php';
 
 echo '
 <tr><td class="w640" height="30" bgcolor="#000000" width="640"></td></tr>
@@ -33,4 +33,4 @@ echo '
 <tr><td class="w640" height="15" bgcolor="#000000" width="640"></td></tr>
 ';
 
-require_once './vue/footer.php';
+require_once './view/footer.php';
