@@ -54,7 +54,7 @@ if (!empty($_POST) && !empty($_POST['bt'])) {
         $_SESSION['usersconnect'] = 'connect';
         setcookie('connected',$sid, time()+3600);
         $user = new User($userconnect['id'], $speudo, $password, $sid, 1);
-        $_SESSION['userid'] = $userconnect['id'];
+        $_SESSION['userid'] = $user->getId;
         redirect('index.php', 'You are connected!');
         exit;
     }
