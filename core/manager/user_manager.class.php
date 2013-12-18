@@ -17,7 +17,7 @@ class UserManager {
         
         $this->insertUser = $db->prepare("INSERT INTO `users` (`id`, `speudo`, `password`, `sid`) VALUES (NULL, :speudo, :password, :sid);");
       
-        $this->updateSid = $db->prepare("UPDATE utilisateurs SET sid=:sid WHERE id=:id");
+        $this->updateSid = $db->prepare("UPDATE `users` SET sid=:sid WHERE id=:id");
     }
     
     //--METHOD--//
@@ -36,7 +36,7 @@ class UserManager {
    
     public function selectIdWithSpeudoPass($speudo, $password){
         $this->selectIdWithSpeudoPass->execute(array(':speudo'=>$speudo, ':password'=>$password));
-        return $this->selectIdWithSpeudoPass->fetchAll();
+        return $this->selectIdWithSpeudoPass->fetch();
     }
     
     //--+INSERT+--//

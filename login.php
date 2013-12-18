@@ -13,7 +13,7 @@ require_once(VIEW . 'contents_header.php');
         <div class="article-content" align="left">
             <multiline label="Description" style="margin-left : 40%;">
                
-                <form action="signup.php" method="POST" id="form_connexion">
+                <form action="" method="POST" id="form_connexion">
                     <fieldset>
                         <div class="clearfix">
                             <label for="speudo">Speudo :</label>
@@ -24,7 +24,7 @@ require_once(VIEW . 'contents_header.php');
                             <div class="input"><input id="password" name="password" size="30" type="password" /></div>
                         </div>
                         <div class="form-actions">
-                            <input class="btn btn-large btn-primary" name="bt" id="submit" type="submit" value="Sign Up"/>
+                            <input class="btn btn-large btn-primary" name="bt" id="submit" type="submit" value="Login"/>
                         </div>
                     </fieldset>
                 </form>
@@ -41,22 +41,21 @@ require_once(VIEW . 'contents_header.php');
 <?php
 if (!empty($_POST) && !empty($_POST['bt'])) {
     $speudo = mysql_real_escape_string(var_post('speudo'));
-    $password = crypt(var_post('password'));
+    $password = md5(var_post('password'));
+    $sid = md5($speudo . time());
     
     $userconnect = $usermanager->selectIdWithSpeudoPass($speudo, $password);
-    $sid = md5($speudo . time());
     $update = $usermanager->updateSid($sid, $userconnect['id']);
+    $user = new User($userconnect['id'], $speudo, $password, $sid);
     
-    
-    
-    if ($update != 1) {
+    if ($update != 1){
         $_SESSION['users'] = 'erreur';
-        header('location: login.php');
+        header('location:login.php');
         exit;
-    } else {
+    }else{
         $_SESSION['users'] = 'connecté';
         setcookie('connected',$sid, time()+3600);
-        header('location: index.php');
+        header('location:index.php');
         exit;
     }
 }

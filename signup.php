@@ -13,7 +13,7 @@ require_once(VIEW . 'contents_header.php');
         <div class="article-content" align="left">
             <multiline label="Description" style="margin-left : 40%;">
                
-                <form action="signup.php" method="POST" id="form_connexion">
+                <form action="" method="POST" id="form_connexion">
                     <fieldset>
                         <div class="clearfix">
                             <label for="speudo">Speudo :</label>
@@ -42,21 +42,19 @@ require_once(VIEW . 'contents_header.php');
 if (!empty($_POST) && !empty($_POST['bt'])) {
     
     $speudo = mysql_real_escape_string(var_post('speudo'));
-    $password = crypt(var_post('password'));
+    $password = md5(var_post('password'));
     $sid = md5($speudo . time());
     
-    $usersignin = new User($speudo,$password,$sid);
-    
+    $usersignin = new User(0,$speudo,$password,$sid);
     $insert = $usermanager->insertUser($usersignin->getSpeudo,$usersignin->getPassword,$usersignin->getSid);
         
     if ($insert != 1) {
         $_SESSION['users'] = 'erreur';
-        header('location: signup.php');
+        header('location:signup.php');
     } else {
-        echo 'else';
         $_SESSION['users'] = 'signin';
         setcookie('signin',$sid, time()+3600);
-        header('location : index.php');
+        header('location:index.php');
     }
 }
 

@@ -1,11 +1,13 @@
 <?php
 
 class User{
+    private $_id;
     private $_speudo;
     private $_password;
     private $_sid;
     
-    function __construct($speudo, $password, $sid) {
+    function __construct($id, $speudo, $password, $sid) {
+        $this->setId($id);
         $this->setSpeudo($speudo);
         $this->setPassword($password);
         $this->setSid($sid);
@@ -14,6 +16,9 @@ class User{
     //--METHODE--//
 
     //--GETTER&SETTER--//
+    public function getId(){return $this->_id;}
+    public function setId($id){$this->getId = $id;}
+    
     public function getSpeudo(){return $this->_speudo;}
     public function setSpeudo($speudo){$this->getSpeudo = $speudo;}
     
