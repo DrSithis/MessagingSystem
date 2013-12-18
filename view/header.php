@@ -1,3 +1,8 @@
+<?php
+if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
+    
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=320, target-densitydpi=device-dpi">
         <link rel="stylesheet" href="./asset/css/style.css">
+        <script src="./assets/js/jquery.js"></script>
         <!--[if gte mso 9]>
         <style _tmplitem="1324" >
         .article-content ol, .article-content ul {
@@ -34,8 +40,15 @@
                                                         <div class="header-content">
                                                             <span class="hide">
                                                                 <a href="./index.php">Home</a> |
-                                                                <a href="./signup.php">Sign Up</a> | 
-                                                                <a href="./login.php">Login</a>
+                                                                <?php
+                                                                if($_SESSION['usersconnect'] != 'connect'){
+                                                                    echo '<a href="./signup.php">Sign Up</a> |'; 
+                                                                    echo '<a href="./login.php">Login</a>';
+                                                                }else{
+                                                                    echo '<a href="./logout.php">Logout</a>';
+                                                                }
+                                                                
+                                                                ?>
                                                             </span>
                                                         </div>
                                                         <table class="w325" border="0" cellpadding="0" cellspacing="0" width="350">

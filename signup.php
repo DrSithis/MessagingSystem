@@ -35,28 +35,27 @@ require_once(VIEW . 'contents_header.php');
 </tr>
 <tr><td class="w580" height="10" width="580"></td></tr>
 
-
-
-
 <?php
+require_once(VIEW . 'contents_footer.php');
+require_once(VIEW . 'footer.php');
+
 if (!empty($_POST) && !empty($_POST['bt'])) {
     
     $speudo = mysql_real_escape_string(var_post('speudo'));
     $password = md5(var_post('password'));
     $sid = md5($speudo . time());
     
-    $usersignin = new User(0,$speudo,$password,$sid);
-    $insert = $usermanager->insertUser($usersignin->getSpeudo,$usersignin->getPassword,$usersignin->getSid);
+    $usersignin = new User(0,$speudo,$password,$sid,0);
+    $insert = $usermanager->insertUser($usersignin->getSpeudo,$usersignin->getPassword,$usersignin->getSid,0);
         
     if ($insert != 1) {
-        $_SESSION['users'] = 'erreur';
-        header('location:signup.php');
+        $_SESSION['usersconnect'] = 'erreur';
+        redirect('signup.php', 'Error registration! Retry!');
+        exit;
     } else {
-        $_SESSION['users'] = 'signin';
+        $_SESSION['usersconnect'] = 'signin';
         setcookie('signin',$sid, time()+3600);
-        header('location:index.php');
+        redirect('index.php', 'Successful registration!');
+        exit;
     }
 }
-
-require_once(VIEW . 'contents_footer.php');
-require_once(VIEW . 'footer.php');

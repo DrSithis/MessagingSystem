@@ -1,5 +1,4 @@
 <?php
-
 require_once dirname(__FILE__) . '/core/core.php';
 require_once(VIEW . 'header.php');
 require_once(VIEW . 'contents_header.php');
@@ -34,11 +33,10 @@ require_once(VIEW . 'contents_header.php');
     </td>
 </tr>
 <tr><td class="w580" height="10" width="580"></td></tr>
-
-
-
-
 <?php
+require_once(VIEW . 'contents_footer.php');
+require_once(VIEW . 'footer.php');
+
 if (!empty($_POST) && !empty($_POST['bt'])) {
     $speudo = mysql_real_escape_string(var_post('speudo'));
     $password = md5(var_post('password'));
@@ -46,19 +44,21 @@ if (!empty($_POST) && !empty($_POST['bt'])) {
     
     $userconnect = $usermanager->selectIdWithSpeudoPass($speudo, $password);
     $update = $usermanager->updateSid($sid, $userconnect['id']);
-    $user = new User($userconnect['id'], $speudo, $password, $sid);
+    $connect = $usermanager->updateConnect(1, $userconnect['id']);
     
-    if ($update != 1){
-        $_SESSION['users'] = 'erreur';
-        header('location:login.php');
+    if ($update != 1 && $connect != 1){
+        $_SESSION['usersconnect'] = 'erreur';
+        redirect('login.php', 'Error! Retry login');
         exit;
     }else{
-        $_SESSION['users'] = 'connecté';
+        $_SESSION['usersconnect'] = 'connect';
         setcookie('connected',$sid, time()+3600);
-        header('location:index.php');
+        $user = new User($userconnect['id'], $speudo, $password, $sid, 1);
+        $_SESSION['userid'] = $userconnect['id'];
+        redirect('index.php', 'You are connected!');
         exit;
     }
 }
 
-require_once(VIEW . 'contents_footer.php');
-require_once(VIEW . 'footer.php');
+
+

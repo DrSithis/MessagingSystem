@@ -5,12 +5,14 @@ class User{
     private $_speudo;
     private $_password;
     private $_sid;
+    private $_connect;
     
-    function __construct($id, $speudo, $password, $sid) {
+    function __construct($id, $speudo, $password, $sid, $connect) {
         $this->setId($id);
         $this->setSpeudo($speudo);
         $this->setPassword($password);
         $this->setSid($sid);
+        $this->setConnect($connect);
     }
     
     //--METHODE--//
@@ -27,5 +29,9 @@ class User{
     
     public function getSid(){return $this->_sid;}
     public function setSid($sid){$this->getSid = $sid;}
+    
+    public function getConnect(){return $this->_connect;}
+    public function setConnect($connect){$this->getConnect = $connect;}
+    
 }
 

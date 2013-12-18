@@ -8,6 +8,7 @@ class UserManager {
     private $insertUser;
     
     private $updateSid;
+    private $updateConnect;
 
     //--INIT--//
     public function __construct($db) {
@@ -18,6 +19,7 @@ class UserManager {
         $this->insertUser = $db->prepare("INSERT INTO `users` (`id`, `speudo`, `password`, `sid`) VALUES (NULL, :speudo, :password, :sid);");
       
         $this->updateSid = $db->prepare("UPDATE `users` SET sid=:sid WHERE id=:id");
+        $this->updateConnect = $db->prepare("UPDATE `users` SET connect=:connect WHERE id=:id");
     }
     
     //--METHOD--//
@@ -49,6 +51,11 @@ class UserManager {
     public function updateSid($sid, $id){
         $this->updateSid->execute(array(':sid'=>$sid, ':id'=>$id));
         return $this->updateSid->rowCount();
+    }
+    
+    public function updateConnect($connect, $id){
+        $this->updateConnect->execute(array(':connect'=>$connect, ':id'=>$id));
+        return $this->updateConnect->rowCount();
     }
     
     //--+DELETE+--//
