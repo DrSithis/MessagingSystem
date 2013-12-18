@@ -7,24 +7,24 @@ require_once(VIEW . 'contents_header.php');
 <td class="w580" width="580">
         <p class="article-title" align="left">
             <singleline label="Title">
-                Enter the speudo & password
+                Login! <br> Enter the speudo & password
             </singleline>
         </p>
         <div class="article-content" align="left">
             <multiline label="Description" style="margin-left : 40%;">
                
-                <form action="" method="POST" id="form_connexion">
+                <form action="signup.php" method="POST" id="form_connexion">
                     <fieldset>
                         <div class="clearfix">
                             <label for="speudo">Speudo :</label>
-                            <div class="input"><input id="email" name="email" size="30" type="text" value="" /></div>
+                            <div class="input"><input id="speudo" name="speudo" size="30" type="text" value="" /></div>
                         </div>
                         <div class="clearfix">
                             <label for="password">Password :</label>
-                            <div class="input"><input id="mdp" name="mdp" size="30" type="password" /></div>
+                            <div class="input"><input id="password" name="password" size="30" type="password" /></div>
                         </div>
                         <div class="form-actions">
-                            <input class="btn btn-large btn-primary" name="bt" id="submit" type="submit" value="Login"/>
+                            <input class="btn btn-large btn-primary" name="bt" id="submit" type="submit" value="Sign Up"/>
                         </div>
                     </fieldset>
                 </form>
@@ -46,6 +46,8 @@ if (!empty($_POST) && !empty($_POST['bt'])) {
     $userconnect = $usermanager->selectIdWithSpeudoPass($speudo, $password);
     $sid = md5($speudo . time());
     $update = $usermanager->updateSid($sid, $userconnect['id']);
+    
+    
     
     if ($update != 1) {
         $_SESSION['users'] = 'erreur';
