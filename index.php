@@ -1,9 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/core/core.php';
-require_once './view/header.php';
-
-
+require_once(VIEW . '/header.php');
 require_once(VIEW . 'contents_header.php');
+
 if($_SESSION['usersconnect'] != 'connect'){
     echo '
         <tr>
@@ -23,15 +22,9 @@ if($_SESSION['usersconnect'] != 'connect'){
         </tr>
         <tr><td class="w580" height="10" width="580"></td></tr>';
 }else{
-     echo '<tr><td class="w580" width="580"><p class="article-title" align="left"><singleline label="Title">
-           Welcome to your IM.<br><br><br>
-           </singleline></p><div class="article-content" align="left">';
-     echo '<multiline label="Description" style="margin-left : 40%;">';
-                
-     echo '</multiline>';
-     echo '</div></td></tr><tr><td class="w580" height="10" width="580"></td></tr>';
+     require_once(PRIV . '/index.php');
 }
 
 
 require_once(VIEW . 'contents_footer.php');
-require_once './view/footer.php';
+require_once(VIEW . '/footer.php');

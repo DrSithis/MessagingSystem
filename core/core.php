@@ -12,6 +12,7 @@ define('CORE', ROOT_PATH . 'core/');
 
 define('RESS', ROOT_PATH . 'assets/');
 define('VIEW', ROOT_PATH . 'view/');
+define('PRIV', VIEW . 'private/');
 
 require_once(DB . '/connect_pdo.php');
 
