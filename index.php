@@ -22,13 +22,9 @@ if($_SESSION['usersconnect'] != 'connect'){
         </tr>
         <tr><td class="w580" height="10" width="580"></td></tr>';
 }else{
-//     require_once(PRIV . '/index.php');
     
-    echo '<iframe src="http://localhost/public/sa/SysMessagerie/view/private/index.php" height="500px" width="790px" style="margin-left:3px;" frameborder="0"></iframe>';
-     
+echo '<iframe src="http://localhost/public/sa/SysMessagerie/view/private/chat.php" height="500px" width="790px" style="margin-left:3px;" frameborder="0"></iframe>';
 
-
-   
 }
 require_once(VIEW . 'contents_footer.php');
 require_once(VIEW . '/footer.php');

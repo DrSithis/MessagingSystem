@@ -8,10 +8,9 @@ class TchatMessageManager {
 
     //--INIT--//
     public function __construct($db) {
-        $this->selectAll = $db->prepare("SELECT * FROM `tchat` WHERE time > ':time' ORDER BY time DESC LIMIT 0 :numberOfGuardsPosts");
+        $this->selectAll = $db->prepare("SELECT * FROM `minichat` WHERE time > ':time' ORDER BY time DESC LIMIT 0 :numberOfGuardsPosts");
        
-        $this->insertMessage = $db->prepare("INSERT INTO `tchat` (`id`, `content`, `time`, `id_users`) VALUES (NULL, :content, :time, :id_users);");
-      
+        $this->insertMessage = $db->prepare("INSERT INTO `minichat` (`id`, `content`, `time`, `id_users`) VALUES (NULL, :content, :time, :id_users);");
     }
     
     //--METHOD--//

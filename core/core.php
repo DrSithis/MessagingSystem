@@ -36,3 +36,16 @@ $tchatmanager = new TchatMessageManager($db);
 //$numberOfGuardsPosts=50;
 //$enableSmileys=true;
 //$smileysPath= SMILEYS;
+
+$nombreDeMessagesGardes=50;
+  $enableSmileys=false;
+  $smileysPath="smilies/";
+  $mysqlparam=array(
+      'username'	 => 'root',
+      'password'	=> 'emilie',
+      'host'	=> 'localhost',
+      'database'	=> 'chatpx'
+    );
+  
+$r = $tchatmanager->selectAll(0, $nombreDeMessagesGardes);
+var_dump($r);
