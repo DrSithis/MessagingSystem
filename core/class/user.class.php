@@ -15,7 +15,7 @@ class User{
         $this->setConnect($connect);
     }
     
-    //--METHODE--//
+    //--METHOD--//
 
     //--GETTER&SETTER--//
     public function getId(){return $this->_id;}

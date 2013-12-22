@@ -11,13 +11,28 @@ define('CORE', ROOT_PATH . 'core/');
     define('MANAGE', CORE . 'manager/');
 
 define('RESS', ROOT_PATH . 'assets/');
+    define('PICTURE', RESS . 'picture/');
+        define('SMILEYS', PICTURE . 'smilies/');
 define('VIEW', ROOT_PATH . 'view/');
 define('PRIV', VIEW . 'private/');
 
 require_once(DB . '/connect_pdo.php');
 
 require_once(MANAGE . 'user_manager.class.php');
+require_once(MANAGE . 'tchatmessage_manager.class.php');
+
 require_once(CLASSE . 'user.class.php');
+require_once(CLASSE . 'tchatmessage.class.php');
+
 require_once(FUNC . 'func.php');
 
 $usermanager = new UserManager($db);
+$tchatmanager = new TchatMessageManager($db);
+
+//***************//
+//*****TCHAT*****//
+//***************//
+
+//$numberOfGuardsPosts=50;
+//$enableSmileys=true;
+//$smileysPath= SMILEYS;

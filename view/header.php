@@ -1,8 +1,3 @@
-<?php
-if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
-    
-}
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +5,7 @@ if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=320, target-densitydpi=device-dpi">
         <link rel="stylesheet" href="./asset/css/style.css">
-        <script src="./assets/js/jquery.js"></script>
+        <script src="asset/js/jquery.js"></script>
         <!--[if gte mso 9]>
         <style _tmplitem="1324" >
         .article-content ol, .article-content ul {
@@ -25,12 +20,12 @@ if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
         <table id="background-table" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody><tr>
                     <td align="center" bgcolor="#1c141c">
-                        <table class="w640" style="margin:0 10px;" border="0" cellpadding="0" cellspacing="0" width="640">
-                            <tbody><tr><td class="w640" height="20" width="640"></td></tr>
+                        <table class="w640" style="margin:0 10px;" border="0" cellpadding="0" cellspacing="0" width="800">
+                            <tbody><tr><td class="w640" height="20" width="800"></td></tr>
 
                                 <tr>
-                                    <td class="w640" width="640">
-                                        <table id="top-bar" class="w640" bgcolor="#694f80" border="0" cellpadding="0" cellspacing="0" width="640">
+                                    <td class="w640" width="800">
+                                        <table id="top-bar" class="w640" bgcolor="#694f80" border="0" cellpadding="0" cellspacing="0" width="800">
                                             <tbody><tr>
                                                     <td class="w15" width="15"></td>
                                                     <td class="w325" align="left" valign="middle" width="350">
@@ -44,11 +39,7 @@ if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
                                                                 if($_SESSION['usersconnect'] != 'connect'){
                                                                     echo '<a href="./signup.php">Sign Up</a> |'; 
                                                                     echo '<a href="./login.php">Login</a>';
-                                                                }else{
-                                                                    echo '<a href="./logout.php">Logout</a>';
-                                                                }
-                                                                
-                                                                ?>
+                                                                }else{ echo '<a href="./logout.php">Logout</a>'; }?>
                                                             </span>
                                                         </div>
                                                         <table class="w325" border="0" cellpadding="0" cellspacing="0" width="350">
@@ -79,9 +70,9 @@ if (isset($_COOKIE['connected']) && $_SESSION['usersconnect']){
                                 </tr>
 
                                 <tr>
-                                    <td id="header" class="w640" align="center" bgcolor="#694f80" width="640">
+                                    <td id="header" class="w640" align="center" bgcolor="#694f80" width="800">
 
-                                        <table class="w640" border="0" cellpadding="0" cellspacing="0" width="640">
+                                        <table class="w640" border="0" cellpadding="0" cellspacing="0" width="800">
                                             <tbody><tr><td class="w30" width="30"></td><td class="w580" height="30" width="580"></td><td class="w30" width="30"></td></tr>
                                                 <tr>
                                                     <td class="w30" width="30"></td>
