@@ -7,13 +7,13 @@ if($_SESSION['usersconnect'] != 'connect'){
     echo '
         <tr>
             <td class="w580" width="580">
-                <p class="article-title" align="left">
+                <p class="article-title" align="left" style="margin-left : 50%;">
                     <singleline label="Title">
                         Welcome to your IM.<br><br><br>
                     </singleline>
                 </p>
                 <div class="article-content" align="left">
-                    <multiline label="Description" style="margin-left : 40%;">
+                    <multiline label="Description" style="margin-left : 55%;">
                         <a href="signup.php">Sign Up</a> |  
                         <a href="login.php">Login</a>
                     </multiline>
@@ -23,7 +23,7 @@ if($_SESSION['usersconnect'] != 'connect'){
         <tr><td class="w580" height="10" width="580"></td></tr>';
 }else{
     
-echo '<iframe src="http://localhost/public/sa/SysMessagerie/view/private/chat.php" height="500px" width="790px" style="margin-left:3px;" frameborder="0"></iframe>';
+echo '<iframe src="view/mods/chat/chat.view.php" height="500px" width="790px" style="margin-left:3px;" frameborder="0"></iframe>';
 
 }
 require_once(VIEW . 'contents_footer.php');

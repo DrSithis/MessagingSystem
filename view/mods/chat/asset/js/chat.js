@@ -58,7 +58,7 @@ function refreshchat(time)
 	alert("Error code " + xhr.status);
       }
     }};
-    xhr.open("POST", "index.php",  true);
+    xhr.open("POST", "chat.core.php",  true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send('act=refresh&lasttime=' + time);
   }
@@ -70,7 +70,7 @@ function sendmessage(pseudo,message)
     pseudo = pseudo.replace(/\+/g,"%2B");
     message= message.replace(/\+/g,"%2B");
     if ((message=='') || (pseudo=='')){
-      alert('Veuillez mettre un pseudo et un message');
+      alert('Please put a message');
     }
     var xhr = Ajx(); 
     xhr.onreadystatechange  = function(){if(xhr.readyState  == 4){ 
@@ -80,7 +80,7 @@ function sendmessage(pseudo,message)
 	alert("Error code " + xhr.status);
       }
     }};
-    xhr.open("POST", "index.php",  true);
+    xhr.open("POST", "chat.core.php",  true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send('act=add&pseudo=' + pseudo +  '&message=' + message );
   }

@@ -12,9 +12,11 @@ define('CORE', ROOT_PATH . 'core/');
 
 define('RESS', ROOT_PATH . 'assets/');
     define('PICTURE', RESS . 'picture/');
-        define('SMILEYS', PICTURE . 'smilies/');
+        
 define('VIEW', ROOT_PATH . 'view/');
-define('PRIV', VIEW . 'private/');
+    define('MOD', VIEW . 'mod/');
+    define('CHAT', MOD . 'chat/');
+    
 
 require_once(DB . '/connect_pdo.php');
 
@@ -29,23 +31,4 @@ require_once(FUNC . 'func.php');
 $usermanager = new UserManager($db);
 $tchatmanager = new TchatMessageManager($db);
 
-//***************//
-//*****TCHAT*****//
-//***************//
 
-//$numberOfGuardsPosts=50;
-//$enableSmileys=true;
-//$smileysPath= SMILEYS;
-
-$nombreDeMessagesGardes=50;
-  $enableSmileys=false;
-  $smileysPath="smilies/";
-  $mysqlparam=array(
-      'username'	 => 'root',
-      'password'	=> 'emilie',
-      'host'	=> 'localhost',
-      'database'	=> 'chatpx'
-    );
-  
-$r = $tchatmanager->selectAll(0, $nombreDeMessagesGardes);
-var_dump($r);

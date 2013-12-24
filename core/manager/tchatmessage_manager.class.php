@@ -8,7 +8,7 @@ class TchatMessageManager {
 
     //--INIT--//
     public function __construct($db) {
-        $this->selectAll = $db->prepare("SELECT * FROM `minichat` WHERE time > ':time' ORDER BY time DESC LIMIT 0 :numberOfGuardsPosts");
+        $this->selectAll = $db->prepare("SELECT * FROM `minichat` WHERE time > 0 ORDER BY time DESC LIMIT 0,50");
        
         $this->insertMessage = $db->prepare("INSERT INTO `minichat` (`id`, `content`, `time`, `id_users`) VALUES (NULL, :content, :time, :id_users);");
     }
@@ -16,9 +16,9 @@ class TchatMessageManager {
     //--METHOD--//
        
     //--+SELECT+--//
-    public function selectAll($time, $numberOfGuardsPosts) {
-        $this->selectAll->execute(array(':time'=>$time, ':numberOfGuardsPosts'=>$numberOfGuardsPosts));
-        return $this->selectAll->fetchAll();
+    public function selectAll() {
+        $this->selectAll->execute();
+        return $this->selectAll->fetchAll(PDO::FETCH_NUM);
     }
     
     //--+INSERT+--//
