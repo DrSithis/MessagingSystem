@@ -27,7 +27,7 @@ if($speudouser_transmitter[0] == $_SESSION['speudouser_receiver']){ redirect('in
                     <input type="hidden" id="pseudo_receiver" value="<?php echo $_SESSION['speudouser_receiver']; ?>"/>
                     <label for="pseudo">Pseudonyme:</label><p class="pseudo_mess"><?php echo $speudouser_transmitter[0]; ?></p><input type="hidden" id="pseudo" value="<?php echo $speudouser_transmitter[0]; ?>"/>
                     <label for="message">Message</label><textarea onkeypress="onKeyEnter(event.keyCode);" id="message"></textarea><br>
-                        <input type="button" value="Send" onClick="sendmessage(document.getElementById('pseudo').value, document.getElementById('message').value);"/>
+                    <input type="button" value="Send" onClick="sendmessage(document.getElementById('pseudo').value, document.getElementById('message').value);"/>
                 </fieldset>
             </div>
         </div>

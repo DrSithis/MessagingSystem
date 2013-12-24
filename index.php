@@ -41,7 +41,7 @@ if($_SESSION['usersconnect'] != 'connect'){
         $obj = new User($user['id'], $user['speudo'], $user['password'], $user['sid'], $user['connect']);
         if($obj->getConnect != 1){
             if($obj->getId !=1){
-                echo '<label><a href="privatechat.php?pseudo='.$obj->getSpeudo.'">- ' . $obj->getSpeudo . '</a></label>';br(1);
+                echo '<label><a href="privatechat.php?pseudo='.$obj->getSpeudo.'&id='.$obj->getId.'">- ' . $obj->getSpeudo . '</a></label>';br(1);
             }
         }
     }

@@ -17,8 +17,16 @@ switch($act)
 {
   case "refresh":
     if(!isset($lasttime)){ die; }
-    $rs = $db_mysqli->query("SELECT minichat.time, users.speudo, minichat.content FROM minichat, users WHERE users.id = minichat.pseudo AND time > '".$lasttime."' ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
-    while($r = $rs->fetch_row()){ $messages[]=array($r[0],$r[1],$r[2]); }
+    $rs = $db_mysqli->query(" 
+            SELECT minichat.time, users.speudo, minichat.content, minichat.pseudoreceiver 
+            FROM minichat 
+            INNER JOIN users ON minichat.pseudo = users.id
+            WHERE time > '".$lasttime."'
+            ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
+    
+    while($r = $rs->fetch_row()){ 
+        if($r[3] == 1){$messages[]=array($r[0],$r[1],$r[2]);}
+    }
 
 //        $rs = $tchatmanager->selectAll();
 //        foreach($rs as $r){ $messages[] = array($r[0], $r[1], $r[2]); }

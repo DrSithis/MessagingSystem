@@ -7,7 +7,7 @@
                                     <td class="w30" width="30"></td>
                                     <td class="w580" valign="top" width="360">
                                         <span class="hide"><p id="permission-reminder" class="footer-content-left" align="left"></p></span>
-                                        <p class="footer-content-left" align="left"><unsubscribe>Hoflack David</unsubscribe></p>
+                                        <p class="footer-content-left" align="left"><unsubscribe>Hoflack David </unsubscribe></p>
                     </td>
                     <td class="hide w0" width="60"></td>
                     <td class="hide w0" valign="top" width="160">

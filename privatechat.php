@@ -5,9 +5,7 @@ require_once(VIEW . 'contents_header.php');
 secureConnect();
 
 $_SESSION['speudouser_receiver'] = var_get('pseudo');
-$_SESSION['speudoidreceiver'] = $usermanager->selectIdWithSpeudo($_SESSION['speudouser_receiver']);
-
-echo $_SESSION['speudoidreceiver'];
+$_SESSION['speudoidreceiver'] = var_get('id');
 
 echo '<tr><td class="w580" width="580"><p class="article-title" align="left" style=""><singleline label="Title" style="margin-left: 40%;">';
 echo 'You write to ' . $_SESSION['speudouser_receiver'];

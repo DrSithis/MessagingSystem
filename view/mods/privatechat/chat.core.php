@@ -17,13 +17,6 @@ switch($act)
 {
   case "refresh":
     if(!isset($lasttime)){ die; }
-//    $rs = $db_mysqli->query(" 
-//            SELECT minichat.time, users.speudo, minichat.content 
-//            FROM minichat, users 
-//            WHERE users.id = minichat.pseudo 
-//            AND time > '".$lasttime."'
-//            ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
-    
     $rs = $db_mysqli->query(" 
             SELECT minichat.time, users.speudo, minichat.content, usersreceiver.speudo 
             FROM minichat 
