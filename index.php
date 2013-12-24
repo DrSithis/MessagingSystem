@@ -23,7 +23,32 @@ if($_SESSION['usersconnect'] != 'connect'){
         <tr><td class="w580" height="10" width="580"></td></tr>';
 }else{
     
-echo '<iframe src="view/mods/chat/chat.view.php" height="500px" width="790px" style="margin-left:3px;" frameborder="0"></iframe>';
+    $users = $usermanager->selectAll();
+//  var_dump($users);br(3);
+    echo '<tr><td class="w580" width="580"><div class="article-content" align="left"><multiline label="Description">';
+    echo '<fieldset><legend>Users Connected</legend>';
+    foreach($users as $user){
+        $obj = new User($user['id'], $user['speudo'], $user['password'], $user['sid'], $user['connect']);
+        if($obj->getConnect != 0){
+            if($obj->getId !=1){
+               echo '<label><a href="privatechat.php?pseudo='.$obj->getSpeudo.'">- ' . $obj->getSpeudo . '</a></label>';br(1);
+            }
+        }
+    }
+    echo '</fieldset>';
+    echo '<fieldset><legend>Users Not Connected</legend>';
+    foreach($users as $user){
+        $obj = new User($user['id'], $user['speudo'], $user['password'], $user['sid'], $user['connect']);
+        if($obj->getConnect != 1){
+            if($obj->getId !=1){
+                echo '<label><a href="privatechat.php?pseudo='.$obj->getSpeudo.'">- ' . $obj->getSpeudo . '</a></label>';br(1);
+            }
+        }
+    }
+    echo '</fieldset>';
+    echo '</multiline></div></td></tr><tr><td class="w580" height="10" width="580"></td></tr>';
+    
+    echo '<iframe src="view/mods/chat/chat.view.php" height="500px" width="600px" style="margin-left:3px; float:left;" frameborder="0"></iframe>';
 
 }
 require_once(VIEW . 'contents_footer.php');

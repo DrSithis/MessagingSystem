@@ -23,10 +23,10 @@ $speudouser = $usermanager->selectSpeudoWithId($_SESSION['userid']);
   </script>
 </div>
 <div id="reponse">
-  <fieldset><legend>Envoyer un message</legend>
+  <fieldset><legend>Send a message</legend>
     <label for="pseudo">Pseudonyme:</label><p class="pseudo_mess"><?php echo $speudouser[0]; ?></p><input type="hidden" id="pseudo" value="<?php echo $speudouser[0]; ?>"/>
     <label for="message">Message</label><textarea onkeypress="onKeyEnter(event.keyCode);" id="message"></textarea><br>
-    <input type="button" value="Envoyer" onClick="sendmessage(document.getElementById('pseudo').value,document.getElementById('message').value);"/>
+    <input type="button" value="Send" onClick="sendmessage(document.getElementById('pseudo').value,document.getElementById('message').value);"/>
   </fieldset>
 </div>
 </div>

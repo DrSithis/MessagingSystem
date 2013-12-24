@@ -30,5 +30,3 @@ require_once(FUNC . 'func.php');
 
 $usermanager = new UserManager($db);
 $tchatmanager = new TchatMessageManager($db);
-
-

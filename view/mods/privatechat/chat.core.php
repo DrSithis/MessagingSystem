@@ -17,12 +17,28 @@ switch($act)
 {
   case "refresh":
     if(!isset($lasttime)){ die; }
-    $rs = $db_mysqli->query("SELECT minichat.time, users.speudo, minichat.content FROM minichat, users WHERE users.id = minichat.pseudo AND time > '".$lasttime."' ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
-    while($r = $rs->fetch_row()){ $messages[]=array($r[0],$r[1],$r[2]); }
-
-//        $rs = $tchatmanager->selectAll();
-//        foreach($rs as $r){ $messages[] = array($r[0], $r[1], $r[2]); }
-
+//    $rs = $db_mysqli->query(" 
+//            SELECT minichat.time, users.speudo, minichat.content 
+//            FROM minichat, users 
+//            WHERE users.id = minichat.pseudo 
+//            AND time > '".$lasttime."'
+//            ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
+    
+    $rs = $db_mysqli->query(" 
+            SELECT minichat.time, users.speudo, minichat.content, usersreceiver.speudo 
+            FROM minichat 
+            INNER JOIN users ON minichat.pseudo = users.id
+            INNER JOIN users AS usersreceiver ON minichat.pseudoreceiver = usersreceiver.id
+            WHERE time > '".$lasttime."'
+            ORDER BY time DESC LIMIT 0,".$numberOfGuardsPosts);
+    
+    while($r = $rs->fetch_row()){ 
+        if($r[1] == $speudouser[0] || $r[1] == $_SESSION['speudouser_receiver']){
+            if($r[3] == $speudouser[0] || $r[3] == $_SESSION['speudouser_receiver'] ){
+                $messages[]=array($r[0],$r[1],$r[2]);
+            } 
+        }
+    }
     $messages=array_reverse($messages); echo(json_encode($messages));
     mysqli_close($db_mysqli); die; break;
 
@@ -34,7 +50,7 @@ switch($act)
         $message=str_replace($smile['code'],'<img src="'.$smiliesPath.$smile['smiley_url'].'" alt="'.$smile['smiley_url'].'"/>',$message);
       }
     }
-    $db_mysqli->query("INSERT INTO minichat (time,pseudo,content,pseudoreceiver) VALUES (".time().",'".$_SESSION['userid']."','".$message."','1')");
+    $db_mysqli->query("INSERT INTO minichat (time,pseudo,content,pseudoreceiver) VALUES (".time().",'".$_SESSION['userid']."','".$message."','".$_SESSION['speudoidreceiver']."')");
     mysqli_close($db_mysqli); die; break;
 
   case "": break;

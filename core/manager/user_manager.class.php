@@ -17,7 +17,7 @@ class UserManager {
         $this->selectAll = $db->prepare("SELECT * FROM users");
         $this->selectUser = $db->prepare("SELECT * FROM users WHERE users.id = :id");
         $this->selectIdWithSpeudoPass = $db->prepare("SELECT users.id FROM users WHERE users.speudo=:speudo AND users.password=:password");
-        $this->selectIdWithSpeudo = $db->prepare("SELECT users.id FROM users WHERE users.speudo=:speudo");
+        $this->selectIdWithSpeudo = $db->prepare("SELECT users.id FROM users WHERE users.speudo=':speudo'");
         $this->selectSpeudoWithId = $db->prepare("SELECT users.speudo FROM users WHERE users.id=:id");
         
         $this->insertUser = $db->prepare("INSERT INTO `users` (`id`, `speudo`, `password`, `sid`) VALUES (NULL, :speudo, :password, :sid);");
@@ -46,8 +46,8 @@ class UserManager {
     }
     
     public function selectIdWithSpeudo($speudo){
-        $this->selectIdWithSpeudoPass->execute(array(':speudo'=>$speudo));
-        return $this->selectIdWithSpeudoPass->fetch();
+        $this->selectIdWithSpeudo->execute(array(':speudo'=>$speudo));
+        return $this->selectIdWithSpeudo->fetch();
     }
     
     public function selectSpeudoWithId($id){

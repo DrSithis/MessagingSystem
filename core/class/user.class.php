@@ -16,7 +16,7 @@ class User{
     }
     
     //--METHOD--//
-
+    
     //--GETTER&SETTER--//
     public function getId(){return $this->_id;}
     public function setId($id){$this->getId = $id;}

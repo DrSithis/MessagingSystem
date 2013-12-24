@@ -6,4 +6,3 @@ function preFillingUser($id,$speudo,$password,$connect,$sid){
     $user->setPassword($password);
     $user->setSid($sid);
 }
-
